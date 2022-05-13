@@ -4,6 +4,8 @@ import (
 	"encoding/binary"
 	"errors"
 	"sync"
+
+	"github.com/York-Shawn/goRPC/compressor"
 )
 
 // type of compression supported by goRPC
@@ -153,4 +155,10 @@ func readString(data []byte) (string, int) {
 	str := string(data[idx : idx+int(length)])
 	idx += len(str)
 	return str, idx
+}
+
+func (r *ResponseHeader) GetCompressType() compressor.CompressType {
+	r.RLock()
+	defer r.RUnlock()
+	return compressor.CompressType(r.CompressType)
 }
