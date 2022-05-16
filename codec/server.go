@@ -24,7 +24,7 @@ type serverCodec struct {
 	pending    map[uint64]uint64
 }
 
-func NewServerCode(conn io.ReadWriteCloser, serializer serializer.Serializer) rpc.ServerCodec {
+func NewServerCodec(conn io.ReadWriteCloser, serializer serializer.Serializer) rpc.ServerCodec {
 	return &serverCodec{
 		r: bufio.NewReader(conn),
 		w: bufio.NewWriter(conn),

@@ -8,6 +8,8 @@ import (
 
 var NotImplementProtoMessageError = errors.New("param does not implement proto.Message")
 
+var Proto = ProtoSerializer{}
+
 type ProtoSerializer struct {
 }
 
