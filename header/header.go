@@ -162,3 +162,9 @@ func (r *ResponseHeader) GetCompressType() compressor.CompressType {
 	defer r.RUnlock()
 	return compressor.CompressType(r.CompressType)
 }
+
+func (r *RequestHeader) GetCompressType() compressor.CompressType {
+	r.RLock()
+	defer r.RUnlock()
+	return compressor.CompressType(r.CompressType)
+}
